@@ -1,0 +1,39 @@
+Imp ipfs cli commands
+1)ipfs init          Initialize ipfs local configuration
+2)ipfs add <path>    Add a file to IPFS //to add folder ipfs add -r /path
+3)ipfs  cat <ref>     Show IPFS object data
+4)ipfs   get <ref>     Download IPFS objects
+5)ipfs    ls <ref>      List links from an object
+6)ipfs  refs <ref>    List hashes of links from an object
+7)ipfs file ->used for all sorts of linux command like mkdir ,ls,cd
+8)ipfs bitswap ledger <hash> ->Show the current ledger for a peer.
+9)ipfs bitswap stat ->some info on the bitswap agent
+10)ipfs bootstrap add [<peer>]... - Add peers to the bootstrap list.
+11)ipfs bootstrap list            - Show peers in the bootstrap list.
+12)ipfs config ->has some commands to check,edit ,add and deleate the configs of the files on our ipfs server.
+13) ipfs key - Create and list IPNS name keypairs ->gen->list->name
+14)ipfs name,object,dag??
+15)ipfs pubsub - allows to publish message to given topic and also subscribe to the topic or event.
+   ->ipfs pubsub ls - List subscribed topics by name.
+   ->ipfs pubsub pub <topic> <data>... - Publish a message to a given pubsub topic.
+   ->ipfs pubsub sub <topic> - Subscribe to messages on a given topic.
+   ->ipfs-pubsub-room ->it is a npm package.->Creates a room based on an IPFS pub-sub channel. 
+                Emits membership events, listens for messages, broadcast and direct messeges to peers.
+                const Room = require('ipfs-pubsub-room')
+                       ipfs.on('ready', () => {
+                          const room = Room(ipfs, 'room-name')
+ ///imilarly peer joined is an event
+                             room.on('peer joined', (peer) => {
+                             console.log('Peer joined the room', peer)
+                                })
+ //note that peer lest is a event in which the ipfs peer has left or thrwon out of the network//
+                       room.on('peer left', (peer) => {
+                         console.log('Peer left...', peer)
+                                })
+ 
+                         // now started to listen to room
+                           room.on('subscribed', () => {
+                          console.log('Now connected!')
+                            })
+                         })
+//for more such events see https://www.npmjs.com/package/ipfs-pubsub-room
